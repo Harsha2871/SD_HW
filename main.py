@@ -34,8 +34,12 @@ js_parser.set_language(JS_LANGUAGE)
 ruby_parser = Parser()
 ruby_parser.set_language(RUBY_LANGUAGE)
 
+
 try:
-    py_codes,go_codes,js_codes,ruby_codes,py_programs,go_programs,js_programs,ruby_programs=ImportFromGit.retrieve_codes(sys.argv[1])
+    link=sys.argv[1]
+    if link[-4:]!='.git':
+        link+='.git'
+    py_codes,go_codes,js_codes,ruby_codes,py_programs,go_programs,js_programs,ruby_programs=ImportFromGit.retrieve_codes(link)
 
 
 
